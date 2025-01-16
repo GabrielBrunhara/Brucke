@@ -46,7 +46,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const Img = styled.div`
-  background-color: blue;
   display: block;
   width: 50%;
   height: 100%;
