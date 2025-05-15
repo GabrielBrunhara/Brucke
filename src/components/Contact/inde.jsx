@@ -1,12 +1,8 @@
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 import * as Styled from './style';
 
 const Contact = () => {
-  const coords = { lat: -25.429637, lng: -49.261049 };
-  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-
   return (
     <Styled.Section $background={'var(--secondary)'} id="header">
       <Styled.ContactContent>
@@ -55,18 +51,15 @@ const Contact = () => {
         </Styled.ContactForm>
       </Styled.ContactContent>
 
-      {/* Adicionando o mapa do Google Maps dentro da div Styled.Map */}
       <Styled.Map>
-        <LoadScript googleMapsApiKey={apiKey}>
-          <GoogleMap
-            mapContainerStyle={{ height: '100%', width: '100%' }}
-            center={coords}
-            zoom={17}
-          >
-            {/* Adicionando o marcador no local especificado */}
-            <Marker position={coords} />
-          </GoogleMap>
-        </LoadScript>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.2521192581094!2d-49.2636244894109!3d-25.429833277468443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce5647bf78467%3A0x6135a208a2f4ce54!2sBrucke%20Engenharia%20e%20Arquitetura%20Ltda!5e0!3m2!1spt-BR!2sbr!4v1747349138373!5m2!1spt-BR!2sbr"
+          width="100%"
+          height="100%"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Brucke Engenharia e Arquitetura Location"
+        ></iframe>
       </Styled.Map>
     </Styled.Section>
   );
