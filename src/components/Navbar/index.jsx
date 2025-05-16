@@ -15,9 +15,9 @@ const Navbar = () => {
   const navbarRef = useRef(null);
 
   const variants = {
-    hidden: { x: width > 848 ? 0 : '-100%' }, // Fora da tela à esquerda
-    visible: { x: 0 }, // Totalmente visível
-    exit: { x: '-100%' }, // Sai para a esquerda
+    hidden: { x: width > 848 ? 0 : '-101%' },
+    visible: { x: 0 },
+    exit: { x: '-101%' },
   };
 
   // Atualiza a largura da tela ao redimensionar
@@ -56,7 +56,7 @@ const Navbar = () => {
       animate={{ y: isVisible ? 0 : '-100%' }}
       transition={{ type: 'tween', duration: 0.5 }}
     >
-      <Styled.ToggleMenu $direction={'start'} onClick={() => handleLinkClick(true)}>
+      <Styled.ToggleMenu onClick={() => handleLinkClick(true)}>
         <HiMenuAlt2 size={25} />
       </Styled.ToggleMenu>
       <Styled.List
@@ -67,9 +67,11 @@ const Navbar = () => {
         variants={variants}
         transition={{ type: 'spring', stiffness: 60, damping: 15 }}
       >
-        <Styled.ToggleMenu $direction={'end'} onClick={() => handleLinkClick(false)}>
-          <IoClose size={25} />
-        </Styled.ToggleMenu>
+        <Styled.CloseContainer>
+          <Styled.ToggleMenu $close={true} onClick={() => handleLinkClick(false)}>
+            <IoClose size={25} />
+          </Styled.ToggleMenu>
+        </Styled.CloseContainer>
         <li>
           <a href="#Home" onClick={handleLinkClick}>
             Pagina inicial

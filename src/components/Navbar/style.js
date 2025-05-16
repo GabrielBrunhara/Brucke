@@ -65,6 +65,16 @@ export const List = styled(motion.ul)`
   }
 `;
 
+export const CloseContainer = styled.div`
+  display: none;
+  justify-content: end;
+  width: 100%;
+
+  @media (max-width: 848px) {
+    display: flex;
+  }
+`;
+
 export const ToggleMenu = styled.button`
   background: none;
   border: none;
@@ -86,6 +96,7 @@ export const MediaIcons = styled.ul`
   gap: 15px;
   padding: 0px 0;
   margin: 0;
+  cursor: pointer;
 
   svg {
     &:hover {

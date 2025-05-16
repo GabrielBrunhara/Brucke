@@ -1,5 +1,7 @@
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useRef } from 'react';
+import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -25,16 +27,27 @@ const cards = [
 ];
 
 const Services = () => {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
+  useEffect(() => {}, []);
+
   return (
     <Styled.Section $background={'var(--primary)'}>
       <h1>SERVIÇOS</h1>
       <Styled.CardContainer>
+        <button ref={nextRef} className="custom-swiper-next">
+          <VscArrowRight size={30} color="var(--accent)" />
+        </button>
+        <button ref={prevRef} className="custom-swiper-prev">
+          <VscArrowLeft size={30} color="var(--accent)" />
+        </button>
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={40}
           slidesPerView={3}
           loop={true}
-          navigation
+          navigation={{ nextEl: '.custom-swiper-next', prevEl: '.custom-swiper-prev' }}
           pagination={{ clickable: true }}
           a11y={{
             enabled: true,
